@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Header copyright="(C) Copyright IBM Corp. 1994, 2015">
+    <Application name="IBM SPSS Modeler" version="18"/>
+</Header>
+  <DataDictionary numberOfFields="7">
+    <DataField dataType="string" name="Sex" optype="categorical">
+      <Extension extender="spss" name="storageType" value="string"/>
+      <Extension extender="spss" name="flagTypeTrueValue" value="male"/>
+      <Value property="valid" value="female"/>
+      <Value property="valid" value="male"/>
+</DataField>
+    <DataField dataType="integer" name="Pclass" optype="ordinal">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+      <Value property="valid" value="1"/>
+      <Value property="valid" value="2"/>
+      <Value property="valid" value="3"/>
+</DataField>
+    <DataField dataType="double" name="Fare" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="integer" name="Parch" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="integer" name="Age" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="integer" name="SibSp" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="integer" name="Survived" optype="categorical">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+      <Extension extender="spss" name="flagTypeTrueValue" value="1"/>
+      <Value property="valid" value="0"/>
+      <Value property="valid" value="1"/>
+</DataField>
+</DataDictionary>
+  <TreeModel algorithmName="C5" functionName="classification" missingValueStrategy="weightedConfidence" modelName="Survived">
+    <Extension extender="spss" name="missingValueStrategy" value="weightedConfidence"/>
+    <MiningSchema>
+      <MiningField importance="0.552919" name="Sex" usageType="active"/>
+      <MiningField importance="0.345843" name="Pclass" usageType="active"/>
+      <MiningField importance="0.023508" name="Fare" usageType="active"/>
+      <MiningField importance="0.0284439" name="Parch" usageType="active"/>
+      <MiningField importance="0.0360065" name="Age" usageType="active"/>
+      <MiningField importance="0.013279" name="SibSp" usageType="active"/>
+      <MiningField name="Survived" usageType="predicted"/>
+</MiningSchema>
+    <Node defaultChild="1" id="0" recordCount="890.999996013" score="0">
+      <Extension extender="spss" name="defaultChild" value="0"/>
+      <True/>
+      <ScoreDistribution confidence="0.6161616189187838" recordCount="549" value="0"/>
+      <ScoreDistribution confidence="0.38383838555596367" recordCount="342" value="1"/>
+      <Node defaultChild="13" id="1" recordCount="576.999996013" score="0">
+        <Extension extender="spss" name="defaultChild" value="1"/>
+        <SimplePredicate field="Sex" operator="equal" value="male"/>
+        <ScoreDistribution confidence="0.8110918600239572" recordCount="468" value="0"/>
+        <ScoreDistribution confidence="0.18890814688592164" recordCount="109" value="1"/>
+        <Node defaultChild="3" id="2" recordCount="121.9999978" score="0">
+          <Extension extender="spss" name="defaultChild" value="0"/>
+          <SimpleSetPredicate booleanOperator="isIn" field="Pclass">
+            <Array n="1" type="int">1</Array>
+</SimpleSetPredicate>
+          <ScoreDistribution confidence="0.6311475523649559" recordCount="77" value="0"/>
+          <ScoreDistribution confidence="0.36885246566783136" recordCount="45" value="1"/>
+          <Node defaultChild="4" id="3" recordCount="113.9999978" score="0">
+            <Extension extender="spss" name="defaultChild" value="0"/>
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="164.867"/>
+            <ScoreDistribution confidence="0.6228070295629426" recordCount="71" value="0"/>
+            <ScoreDistribution confidence="0.3771929897353033" recordCount="43" value="1"/>
+            <Node defaultChild="6" id="4" recordCount="107.9999978" score="0">
+              <Extension extender="spss" name="defaultChild" value="1"/>
+              <SimplePredicate field="Parch" operator="lessOrEqual" value="1"/>
+              <ScoreDistribution confidence="0.6481481613511663" recordCount="70" value="0"/>
+              <ScoreDistribution confidence="0.3518518590192045" recordCount="38" value="1"/>
+              <Node id="5" recordCount="10" score="0">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="26"/>
+                <ScoreDistribution confidence="1.0" recordCount="10" value="0"/>
+                <ScoreDistribution confidence="0.0" recordCount="0" value="1"/>
+</Node>
+              <Node defaultChild="7" id="6" recordCount="97.9999978" score="0">
+                <Extension extender="spss" name="defaultChild" value="0"/>
+                <SimplePredicate field="Fare" operator="greaterThan" value="26"/>
+                <ScoreDistribution confidence="0.6122449117034572" recordCount="60" value="0"/>
+                <ScoreDistribution confidence="0.3877551107455229" recordCount="38" value="1"/>
+                <Node defaultChild="9" id="7" recordCount="75.5662633" score="0">
+                  <Extension extender="spss" name="defaultChild" value="1"/>
+                  <SimplePredicate field="Age" operator="lessOrEqual" value="53"/>
+                  <ScoreDistribution confidence="0.551977035498062" recordCount="41.710842" value="0"/>
+                  <ScoreDistribution confidence="0.44802298699874976" recordCount="33.855423" value="1"/>
+                  <Node id="8" recordCount="12.5421683" score="1">
+                    <SimplePredicate field="Fare" operator="lessOrEqual" value="27"/>
+                    <ScoreDistribution confidence="0.14121037588054053" recordCount="1.7710843" value="0"/>
+                    <ScoreDistribution confidence="0.8587896241194595" recordCount="10.771084" value="1"/>
+</Node>
+                  <Node id="9" recordCount="63.024095" score="0">
+                    <SimplePredicate field="Fare" operator="greaterThan" value="27"/>
+                    <ScoreDistribution confidence="0.6337220391661316" recordCount="39.939758" value="0"/>
+                    <ScoreDistribution confidence="0.3662779608338684" recordCount="23.084337" value="1"/>
+</Node>
+</Node>
+                <Node id="10" recordCount="22.4337345" score="0">
+                  <SimplePredicate field="Age" operator="greaterThan" value="53"/>
+                  <ScoreDistribution confidence="0.8152524048102646" recordCount="18.289156" value="0"/>
+                  <ScoreDistribution confidence="0.18474759518973535" recordCount="4.1445785" value="1"/>
+</Node>
+</Node>
+</Node>
+            <Node id="11" recordCount="6" score="1">
+              <SimplePredicate field="Parch" operator="greaterThan" value="1"/>
+              <ScoreDistribution confidence="0.16666666666666666" recordCount="1" value="0"/>
+              <ScoreDistribution confidence="0.8333333333333334" recordCount="5" value="1"/>
+</Node>
+</Node>
+          <Node id="12" recordCount="8" score="0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="164.867"/>
+            <ScoreDistribution confidence="0.75" recordCount="6" value="0"/>
+            <ScoreDistribution confidence="0.25" recordCount="2" value="1"/>
+</Node>
+</Node>
+        <Node defaultChild="19" id="13" recordCount="454.99999821299997" score="0">
+          <Extension extender="spss" name="defaultChild" value="1"/>
+          <SimpleSetPredicate booleanOperator="isIn" field="Pclass">
+            <Array n="2" type="int">2 3</Array>
+</SimpleSetPredicate>
+          <ScoreDistribution confidence="0.8593406627156962" recordCount="391" value="0"/>
+          <ScoreDistribution confidence="0.14065934121177637" recordCount="64" value="1"/>
+          <Node defaultChild="15" id="14" recordCount="38.778408213" score="0">
+            <Extension extender="spss" name="defaultChild" value="0"/>
+            <SimplePredicate field="Age" operator="lessOrEqual" value="9"/>
+            <ScoreDistribution confidence="0.537435933046198" recordCount="20.84091" value="0"/>
+            <ScoreDistribution confidence="0.4625641130361475" recordCount="17.9375" value="1"/>
+            <Node defaultChild="17" id="15" recordCount="24.352272213" score="1">
+              <Extension extender="spss" name="defaultChild" value="1"/>
+              <SimplePredicate field="SibSp" operator="lessOrEqual" value="2"/>
+              <ScoreDistribution confidence="0.30447971898251713" recordCount="7.414773" value="0"/>
+              <ScoreDistribution confidence="0.6955203133347958" recordCount="16.9375" value="1"/>
+              <Node id="16" recordCount="8.09659094" score="0">
+                <SimplePredicate field="Parch" operator="lessOrEqual" value="0"/>
+                <ScoreDistribution confidence="0.9052631600528901" recordCount="7.3295455" value="0"/>
+                <ScoreDistribution confidence="0.09473683994710988" recordCount="0.76704544" value="1"/>
+</Node>
+              <Node id="17" recordCount="16.255681273" score="1">
+                <SimplePredicate field="Parch" operator="greaterThan" value="0"/>
+                <ScoreDistribution confidence="0.005242922247839523" recordCount="0.085227273" value="0"/>
+                <ScoreDistribution confidence="0.9947570777521604" recordCount="16.170454" value="1"/>
+</Node>
+</Node>
+            <Node id="18" recordCount="14.426136" score="0">
+              <SimplePredicate field="SibSp" operator="greaterThan" value="2"/>
+              <ScoreDistribution confidence="0.9306813688710546" recordCount="13.426136" value="0"/>
+              <ScoreDistribution confidence="0.06931863112894542" recordCount="1" value="1"/>
+</Node>
+</Node>
+          <Node id="19" recordCount="416.22159" score="0">
+            <SimplePredicate field="Age" operator="greaterThan" value="9"/>
+            <ScoreDistribution confidence="0.88933178598448" recordCount="370.15909" value="0"/>
+            <ScoreDistribution confidence="0.11066821401551996" recordCount="46.0625" value="1"/>
+</Node>
+</Node>
+</Node>
+      <Node defaultChild="21" id="20" recordCount="314" score="1">
+        <Extension extender="spss" name="defaultChild" value="0"/>
+        <SimplePredicate field="Sex" operator="equal" value="female"/>
+        <ScoreDistribution confidence="0.25796178343949044" recordCount="81" value="0"/>
+        <ScoreDistribution confidence="0.7420382165605095" recordCount="233" value="1"/>
+        <Node id="21" recordCount="170" score="1">
+          <SimpleSetPredicate booleanOperator="isIn" field="Pclass">
+            <Array n="2" type="int">1 2</Array>
+</SimpleSetPredicate>
+          <ScoreDistribution confidence="0.052941176470588235" recordCount="9" value="0"/>
+          <ScoreDistribution confidence="0.9470588235294117" recordCount="161" value="1"/>
+</Node>
+        <Node defaultChild="23" id="22" recordCount="144" score="1">
+          <Extension extender="spss" name="defaultChild" value="0"/>
+          <SimpleSetPredicate booleanOperator="isIn" field="Pclass">
+            <Array n="1" type="int">3</Array>
+</SimpleSetPredicate>
+          <ScoreDistribution confidence="0.5" recordCount="72" value="0"/>
+          <ScoreDistribution confidence="0.5" recordCount="72" value="1"/>
+          <Node id="23" recordCount="117" score="1">
+            <SimplePredicate field="Fare" operator="lessOrEqual" value="23.25"/>
+            <ScoreDistribution confidence="0.41025641025641024" recordCount="48" value="0"/>
+            <ScoreDistribution confidence="0.5897435897435898" recordCount="69" value="1"/>
+</Node>
+          <Node id="24" recordCount="27" score="0">
+            <SimplePredicate field="Fare" operator="greaterThan" value="23.25"/>
+            <ScoreDistribution confidence="0.8888888888888888" recordCount="24" value="0"/>
+            <ScoreDistribution confidence="0.1111111111111111" recordCount="3" value="1"/>
+</Node>
+</Node>
+</Node>
+</Node>
+</TreeModel>
+</PMML>

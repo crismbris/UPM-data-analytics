@@ -1,0 +1,4 @@
+clasificacion --> el resultado tiene que estar entre un conjunto finito(soleado/nublado/lluvioso)
+
+prediccion --> el reusltado esta en un conjunto infinito(prediccion de la temperatura [es infinito porque la tº estará entre
+		-50º a 50º]).

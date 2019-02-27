@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Header copyright="(C) Copyright IBM Corp. 1994, 2015">
+    <Application name="IBM SPSS Modeler" version="18.1"/>
+</Header>
+  <DataDictionary numberOfFields="8">
+    <DataField dataType="string" name="Sex" optype="categorical">
+      <Extension extender="spss" name="storageType" value="string"/>
+      <Extension extender="spss" name="flagTypeTrueValue" value="male"/>
+      <Value property="valid" value="female"/>
+      <Value property="valid" value="male"/>
+</DataField>
+    <DataField dataType="integer" name="Age" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="integer" name="SibSp" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="integer" name="Parch" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="integer" name="Pclass" optype="ordinal">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+      <Value property="valid" value="1"/>
+      <Value property="valid" value="2"/>
+      <Value property="valid" value="3"/>
+</DataField>
+    <DataField dataType="string" name="Embarked" optype="categorical">
+      <Extension extender="spss" name="storageType" value="string"/>
+      <Value property="valid" value=""/>
+      <Value property="valid" value="C"/>
+      <Value property="valid" value="Q"/>
+      <Value property="valid" value="S"/>
+</DataField>
+    <DataField dataType="double" name="Fare" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="integer" name="Survived" optype="categorical">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+      <Extension extender="spss" name="flagTypeTrueValue" value="1"/>
+      <Value property="valid" value="0"/>
+      <Value property="valid" value="1"/>
+</DataField>
+</DataDictionary>
+  <TreeModel algorithmName="C5" functionName="classification" missingValueStrategy="weightedConfidence" modelName="Survived">
+    <Extension extender="spss" name="missingValueStrategy" value="weightedConfidence"/>
+    <MiningSchema>
+      <MiningField importance="0.617634" name="Sex" usageType="active"/>
+      <MiningField importance="0.11079" name="Age" usageType="active"/>
+      <MiningField importance="0.0174983" name="SibSp" usageType="active"/>
+      <MiningField importance="0.0710314" name="Parch" usageType="active"/>
+      <MiningField importance="0.153019" name="Pclass" usageType="active"/>
+      <MiningField importance="0.0135211" name="Embarked" usageType="active"/>
+      <MiningField importance="0.0165066" name="Fare" usageType="active"/>
+      <MiningField name="Survived" usageType="predicted"/>
+</MiningSchema>
+    <Node defaultChild="1" id="0" recordCount="890.999998647" score="0">
+      <Extension extender="spss" name="defaultChild" value="0"/>
+      <True/>
+      <ScoreDistribution confidence="0.6159014567002404" probability="0.616161617097269" recordCount="549" value="0"/>
+      <ScoreDistribution confidence="0.3840985448148772" probability="0.38383838442124957" recordCount="342" value="1"/>
+      <Node defaultChild="7" id="1" recordCount="576.999998647" score="0">
+        <Extension extender="spss" name="defaultChild" value="1"/>
+        <SimplePredicate field="Sex" operator="equal" value="male"/>
+        <ScoreDistribution confidence="0.8100172730500058" probability="0.8110918563213299" recordCount="468" value="0"/>
+        <ScoreDistribution confidence="0.18998272928678175" probability="0.18890814602355757" recordCount="109" value="1"/>
+        <Node defaultChild="3" id="2" recordCount="40.759381647" score="0">
+          <Extension extender="spss" name="defaultChild" value="0"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="9.5"/>
+          <ScoreDistribution confidence="0.5058337648228713" probability="0.5061200186661409" recordCount="20.629139" value="0"/>
+          <ScoreDistribution confidence="0.4941662434326269" probability="0.49387998999444194" recordCount="20.130243" value="1"/>
+          <Node defaultChild="5" id="3" recordCount="26.406180647" score="1">
+            <Extension extender="spss" name="defaultChild" value="1"/>
+            <SimplePredicate field="SibSp" operator="lessOrEqual" value="2.5"/>
+            <ScoreDistribution confidence="0.29134287016068905" probability="0.27553921171960993" recordCount="7.2759382" value="0"/>
+            <ScoreDistribution confidence="0.7086571493069053" probability="0.7244608092224569" recordCount="19.130243" value="1"/>
+            <Node id="4" recordCount="8.19426047" score="0">
+              <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+              <ScoreDistribution confidence="0.8048938933968596" probability="0.8793103448907086" recordCount="7.205298" value="0"/>
+              <ScoreDistribution confidence="0.1951061066031404" probability="0.1206896551092914" recordCount="0.98896247" value="1"/>
+</Node>
+            <Node id="5" recordCount="18.211920177" score="1">
+              <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+              <ScoreDistribution confidence="0.05297073052061262" probability="0.0038787879758671534" recordCount="0.070640177" value="0"/>
+              <ScoreDistribution confidence="0.9470292694793873" probability="0.9961212120241327" recordCount="18.14128" value="1"/>
+</Node>
+</Node>
+          <Node id="6" recordCount="14.353201" score="0">
+            <SimplePredicate field="SibSp" operator="greaterThan" value="2.5"/>
+            <ScoreDistribution confidence="0.8776997848922667" probability="0.9303291300665266" recordCount="13.353201" value="0"/>
+            <ScoreDistribution confidence="0.12230021510773335" probability="0.06967086993347338" recordCount="1" value="1"/>
+</Node>
+</Node>
+        <Node id="7" recordCount="536.240617" score="0">
+          <SimplePredicate field="Age" operator="greaterThan" value="9.5"/>
+          <ScoreDistribution confidence="0.8330305180220168" probability="0.8342726116175567" recordCount="447.37086" value="0"/>
+          <ScoreDistribution confidence="0.1669694819779831" probability="0.16572738838244325" recordCount="88.869757" value="1"/>
+</Node>
+</Node>
+      <Node defaultChild="9" id="8" recordCount="314" score="1">
+        <Extension extender="spss" name="defaultChild" value="0"/>
+        <SimplePredicate field="Sex" operator="equal" value="female"/>
+        <ScoreDistribution confidence="0.25949367088607594" probability="0.25796178343949044" recordCount="81" value="0"/>
+        <ScoreDistribution confidence="0.740506329113924" probability="0.7420382165605095" recordCount="233" value="1"/>
+        <Node id="9" recordCount="170" score="1">
+          <SimpleSetPredicate booleanOperator="isIn" field="Pclass">
+            <Array n="2" type="int">1 2</Array>
+</SimpleSetPredicate>
+          <ScoreDistribution confidence="0.05813953488372093" probability="0.052941176470588235" recordCount="9" value="0"/>
+          <ScoreDistribution confidence="0.9418604651162791" probability="0.9470588235294117" recordCount="161" value="1"/>
+</Node>
+        <Node defaultChild="20" id="10" recordCount="144" score="1">
+          <Extension extender="spss" name="defaultChild" value="3"/>
+          <SimpleSetPredicate booleanOperator="isIn" field="Pclass">
+            <Array n="1" type="int">3</Array>
+</SimpleSetPredicate>
+          <ScoreDistribution confidence="0.5" probability="0.5" recordCount="72" value="0"/>
+          <ScoreDistribution confidence="0.5" probability="0.5" recordCount="72" value="1"/>
+          <Node id="11" recordCount="0" score="1">
+            <SimplePredicate field="Embarked" operator="equal" value=""/>
+            <ScoreDistribution confidence="0.0" probability="0.0" recordCount="0" value="0"/>
+            <ScoreDistribution confidence="0.0" probability="0.0" recordCount="0" value="1"/>
+</Node>
+          <Node defaultChild="13" id="12" recordCount="23" score="1">
+            <Extension extender="spss" name="defaultChild" value="0"/>
+            <SimplePredicate field="Embarked" operator="equal" value="C"/>
+            <ScoreDistribution confidence="0.36" probability="0.34782608695652173" recordCount="8" value="0"/>
+            <ScoreDistribution confidence="0.64" probability="0.6521739130434783" recordCount="15" value="1"/>
+            <Node defaultChild="15" id="13" recordCount="16" score="1">
+              <Extension extender="spss" name="defaultChild" value="1"/>
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="15.49374999"/>
+              <ScoreDistribution confidence="0.5" probability="0.5" recordCount="8" value="0"/>
+              <ScoreDistribution confidence="0.5" probability="0.5" recordCount="8" value="1"/>
+              <Node id="14" recordCount="6" score="1">
+                <SimplePredicate field="Fare" operator="lessOrEqual" value="13.93545"/>
+                <ScoreDistribution confidence="0.0" probability="0.0" recordCount="0" value="0"/>
+                <ScoreDistribution confidence="0.875" probability="1.0" recordCount="6" value="1"/>
+</Node>
+              <Node id="15" recordCount="10" score="0">
+                <SimplePredicate field="Fare" operator="greaterThan" value="13.93545"/>
+                <ScoreDistribution confidence="0.75" probability="0.8" recordCount="8" value="0"/>
+                <ScoreDistribution confidence="0.25" probability="0.2" recordCount="2" value="1"/>
+</Node>
+</Node>
+            <Node id="16" recordCount="7" score="1">
+              <SimplePredicate field="Fare" operator="greaterThan" value="15.49374999"/>
+              <ScoreDistribution confidence="0.0" probability="0.0" recordCount="0" value="0"/>
+              <ScoreDistribution confidence="0.8888888888888888" probability="1.0" recordCount="7" value="1"/>
+</Node>
+</Node>
+          <Node defaultChild="18" id="17" recordCount="33" score="1">
+            <Extension extender="spss" name="defaultChild" value="0"/>
+            <SimplePredicate field="Embarked" operator="equal" value="Q"/>
+            <ScoreDistribution confidence="0.2857142857142857" probability="0.2727272727272727" recordCount="9" value="0"/>
+            <ScoreDistribution confidence="0.7142857142857143" probability="0.7272727272727273" recordCount="24" value="1"/>
+            <Node id="18" recordCount="30" score="1">
+              <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+              <ScoreDistribution confidence="0.21875" probability="0.2" recordCount="6" value="0"/>
+              <ScoreDistribution confidence="0.78125" probability="0.8" recordCount="24" value="1"/>
+</Node>
+            <Node id="19" recordCount="3" score="0">
+              <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+              <ScoreDistribution confidence="0.8" probability="1.0" recordCount="3" value="0"/>
+              <ScoreDistribution confidence="0.0" probability="0.0" recordCount="0" value="1"/>
+</Node>
+</Node>
+          <Node defaultChild="21" id="20" recordCount="88" score="0">
+            <Extension extender="spss" name="defaultChild" value="0"/>
+            <SimplePredicate field="Embarked" operator="equal" value="S"/>
+            <ScoreDistribution confidence="0.6222222222222222" probability="0.625" recordCount="55" value="0"/>
+            <ScoreDistribution confidence="0.37777777777777777" probability="0.375" recordCount="33" value="1"/>
+            <Node defaultChild="22" id="21" recordCount="59" score="1">
+              <Extension extender="spss" name="defaultChild" value="0"/>
+              <SimplePredicate field="Fare" operator="lessOrEqual" value="20.79999999"/>
+              <ScoreDistribution confidence="0.4918032786885246" probability="0.4915254237288136" recordCount="29" value="0"/>
+              <ScoreDistribution confidence="0.5081967213114754" probability="0.5084745762711864" recordCount="30" value="1"/>
+              <Node id="22" recordCount="45" score="0">
+                <SimplePredicate field="Parch" operator="lessOrEqual" value="0.5"/>
+                <ScoreDistribution confidence="0.5531914893617021" probability="0.5555555555555556" recordCount="25" value="0"/>
+                <ScoreDistribution confidence="0.44680851063829785" probability="0.4444444444444444" recordCount="20" value="1"/>
+</Node>
+              <Node id="23" recordCount="14" score="1">
+                <SimplePredicate field="Parch" operator="greaterThan" value="0.5"/>
+                <ScoreDistribution confidence="0.3125" probability="0.2857142857142857" recordCount="4" value="0"/>
+                <ScoreDistribution confidence="0.6875" probability="0.7142857142857143" recordCount="10" value="1"/>
+</Node>
+</Node>
+            <Node id="24" recordCount="29" score="0">
+              <SimplePredicate field="Fare" operator="greaterThan" value="20.79999999"/>
+              <ScoreDistribution confidence="0.8709677419354839" probability="0.896551724137931" recordCount="26" value="0"/>
+              <ScoreDistribution confidence="0.12903225806451613" probability="0.10344827586206896" recordCount="3" value="1"/>
+</Node>
+</Node>
+</Node>
+</Node>
+</Node>
+</TreeModel>
+</PMML>
