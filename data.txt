@@ -1,0 +1,36 @@
+1. analisis prepocesado de los datos.
+     1.1 data dispersion characteritics
+		median, min, max, quantiles, variance..
+     1.2 numerical dimensions
+		data disperison, boxplot
+		distribucion de los valores graficamente
+		No histograma porque de discretiza la variable (
+
+2. Data Cleaning
+	1. Encuentrar los null-> null explicito o con valor (99999)
+	2. variables con relacion con otras.
+	3. Analisis de correlación.
+
+*Cuando hay muchas variables PCA->numericas
+				MCA-> no numericas
+
+
+
+Tres políticas tratamiento de los nulos:
+
+1.Variable
+2.Individuos con muchas variables a nulo -> a lo mejor hay que eliminarlo, pero hay que informar de que se ha hecho eso.
+3.Asignar valor a los nulos en el caso de no querer eliminarlos
+	a.Poner la media para no cambie la distribución de la variable
+	  Depende de la cantidad de nulos que haya, ya que de esta manera puede que estemos creando una subpoblación ahí.
+	b.Poner un valor fuera de rango y así nos damos cuenta.
+	  De esta manera al hacer clustering nos va a llevar estos datos a un grupo solos.
+	c.Imputación por valor. En vez de cambiar por la media, ponemos un valor que predecimos. 
+
+
+Libreria maise? en R.
+
+
+
+Aplicar dos tecnicas y despues un modelado.
+si cambia es que el metodo de cambio de nulos esta fallando.
